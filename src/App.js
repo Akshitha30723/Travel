@@ -1,25 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Switch, Link, Redirect } from "react-router-dom";
+import Login from "./components/Login";
+import Dashboard from "./components/Dashboard";
+import Favourites from "./components/Experiences/Favourites";
+import Profile from "./components/Profile";
+import Notifications from './components/Notifications';
+import Settings from "./components/Settings"; 
+import Help from "./components/Help";
+import Hotel from "./components/Hotel/HotelsList";
+import Form from "./components/Form";
+class App extends Component{
+  render(){
+    return(
+      <div>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Login}/>
+         <Route exact path={"/dashboard"}> 
+        <Dashboard/>
+        </Route>
+        <Route exact path={"/fav"}> 
+        <Favourites/>
+        </Route>
+        <Route exact path={"/profile"}> 
+        <Profile/>
+        </Route>
+        <Route exact path={"/notifications"}> 
+        <Notifications/>
+        </Route>
+        <Route exact path={"/settings"}> 
+        <Settings/>
+        </Route>
+        <Route exact path={"/help"}> 
+        <Help/>
+        </Route>
+        <Route exact path={"/Hotels"}> 
+        <Hotel/>
+        </Route>
+        <Route exact path={"/form"}> 
+        <Form/>
+        </Route>
+         
+        </Switch>
+      </Router> 
+      </div>
+    
+    )
+  }
 }
-
 export default App;

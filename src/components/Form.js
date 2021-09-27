@@ -37,7 +37,6 @@ function Form(){
                 <option>4</option>
             </select>
         </div>
-
             </div>
         </form>
         </div>

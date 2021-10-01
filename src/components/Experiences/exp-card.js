@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {RiFootprintLine} from 'react-icons/ri';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import DateRangeIcon from '@material-ui/icons/DateRange';
@@ -8,8 +8,8 @@ import '../Dashboard.css';
     const style2={width:25,height:15,color:'white'}
       return (
         <div class='child'>
-          <a href="/Hotels">
-          <img class='img'src={props.img} alt=' ' /></a>
+          
+          <img class='img'src={props.img} alt=' ' />
           <div class="top-right"><FavoriteIcon style={style1}/></div>
           <div class='bottom-left'>{props.desc}</div>
           <div class='bottom-left1'> {props.place} </div>

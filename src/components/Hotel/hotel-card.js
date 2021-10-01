@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import ReactDOM from  'react-dom';
+import React from 'react';
+// import ReactDOM from  'react-dom';
 import {FaStar } from 'react-icons/fa';
 import '../Dashboard.css';
 
@@ -8,7 +8,7 @@ import '../Dashboard.css';
         
         <div class='hotel-cards'>
           <a href="/form">
-        <img src={props.img} />
+        <img src={props.img} alt="" />
         </a>
         <div class='rating' >
           <FaStar color='yellow'/>

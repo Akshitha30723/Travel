@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { Redirect, Link, NavLink, Route, withRouter} from "react-router-dom";
 import './Login.css';
-
+import axios from "axios";
 class Login extends Component{
     constructor(props) {
         super(props);
@@ -19,16 +18,37 @@ class Login extends Component{
             username:false,
             password:false,
             buttonActive:false
-        }
+        },
+        errorMessage:"",
+        successMessage:""
         };
     }
+    
     routeChange() {
         let path = "/dashboard";
         this.props.history.push(path);
       }
     handleSubmit = event => {
         event.preventDefault();
-    }
+        const payload={
+            username: this.state.username,
+            password:this.state.password
+        };
+  
+
+    axios({
+        url:'http://localhost:1050/',
+        method:'POST',
+        data:payload
+    })
+    .then(()=>{
+        console.log('Data has sent');
+    })
+    .catch(()=>{
+        console.log("Internal server error");
+    });;
+};
+
     handleChange = event => {
           let {name,value} = event.target;
           let formDum = this.state.form;
@@ -70,6 +90,7 @@ class Login extends Component{
     }
     render(){
         let {usernameError,passwordError} = this.state.formErrorMessage;
+        const {username, password}=this.state;
         return(
             <div className="log">
                 <form onSubmit={this.handleSubmit}>
@@ -77,12 +98,12 @@ class Login extends Component{
                     <h2> ACCOUNT LOGIN</h2>
                  <div className="form-group">   
                 <label htmlFor='username'>USERNAME:</label>
-                <input type="text" name="username" onChange={this.handleChange}/>
+                <input type="text" name="username" value={username} onChange={this.handleChange}/>
                 <span className='text-danger'>{usernameError}</span>
                 </div>
                 <div className="form-group">
                 <label htmlFor='password'>PASSWORD:</label>
-                <input type="password" name="password" onChange={this.handleChange}/>
+                <input type="password" name="password" value={password} onChange={this.handleChange}/>
                 <span className='text-danger'>{passwordError}</span>
                 </div>
                 <div className="form-group">

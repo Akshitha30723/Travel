@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch, Link, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
 import Favourites from "./components/Experiences/Favourites";
@@ -12,7 +12,6 @@ import Form from "./components/Form";
 class App extends Component{
   render(){
     return(
-      <div>
       <Router>
         <Switch>
           <Route exact path="/" component={Login}/>
@@ -43,8 +42,6 @@ class App extends Component{
          
         </Switch>
       </Router> 
-      </div>
-    
     )
   }
 }

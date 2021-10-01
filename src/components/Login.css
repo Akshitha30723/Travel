@@ -71,9 +71,7 @@
     border:1px solid;
     transition: 0.4s;
   }
-  /* form .form-inner .form-group input:focus{
-    box-shadow: 1px 1px 1px rgba(71, 69, 69, 0);
-  } */
+  
   form .form-inner button{
     display:inline-block;
     border-radius: 8px;
